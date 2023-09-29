@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { Team, User } from '../state/picker';
+    import type { Team } from '../state/picker';
 	import PickResult from './PickResult.svelte';
     export let team: Team;
 
