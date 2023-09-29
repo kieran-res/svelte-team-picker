@@ -2,6 +2,4 @@
   import Picker from '../components/Picker.svelte';
 </script>
 
-
 <Picker />
-

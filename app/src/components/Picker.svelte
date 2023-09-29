@@ -1,9 +1,10 @@
 <script lang="ts">
     import { picker, type User } from '../state/picker'
+	import PickResult from './PickResult.svelte';
+
     let name = '';
 
     function addNewTeamMember() {
-        console.log('added', name)
         picker.addMember(name);
         name = ''
     }
@@ -27,9 +28,7 @@
 
 <div>
     <h1>Welcome to the team picker, {$picker.id}!</h1>
-    {#if $picker.members.length >= 2}
-        <button>Pick</button>
-    {/if}
+    <PickResult enabled={$picker.members.length >= 2} />
     <div style="display: flex; flex-direction: row;">
         <h4>Name</h4>
         <input data-testId="input" bind:value={name}>
