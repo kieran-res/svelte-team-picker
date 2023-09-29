@@ -62,4 +62,16 @@ describe('application state', () => {
         expect(currentState.members.filter(m => m.name === userB)[0].numberOfPicks).toBe(0);
         expect(currentState.lastPick).toBe(userA);
     })
+
+    it ('sets whole state', () => {
+        const state: Team = {
+            id: "another team",
+            lastPick: "user1",
+            members: [{name: 'user1', numberOfPicks: 0}]
+        }
+
+        picker.set(state)
+
+        expect(currentState).toStrictEqual(state);
+    })
 })

@@ -1,5 +1,1 @@
-<script lang='ts'>
-  import Picker from '../components/Picker.svelte';
-</script>
-
-<Picker />
+<h1>Welcome to the picker!</h1>

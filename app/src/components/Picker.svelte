@@ -1,17 +1,9 @@
 <script lang="ts">
-    import { picker, type User } from '../state/picker'
+    import type { Team, User } from '../state/picker';
 	import PickResult from './PickResult.svelte';
+    export let team: Team;
 
     let name = '';
-
-    function addNewTeamMember() {
-        picker.addMember(name);
-        name = ''
-    }
-
-    function removeTeamMember(member: User) {
-        picker.removeMember(member.name);
-    }
 </script>
 
 <style>
@@ -27,17 +19,24 @@
 </style>
 
 <div>
-    <h1>Welcome to the team picker, {$picker.id}!</h1>
-    <PickResult enabled={$picker.members.length >= 2} />
+    <h1>Welcome to the team picker, {team.id}!</h1>
+    <PickResult enabled={team.members.length >= 2} team={team} />
     <div style="display: flex; flex-direction: row;">
         <h4>Name</h4>
-        <input data-testId="input" bind:value={name}>
-        <button disabled={name.length === 0} on:click={addNewTeamMember}>Add</button>
+        <form method="POST" action="?/add">
+            <input type="hidden" name="id" value={team.id} />
+            <input name="name" bind:value={name}>
+            <button disabled={name.length === 0}>Add</button>
+        </form>
     </div>
-    {#each $picker.members as member}
+    {#each team.members as member}
         <div style="display: flex; flex-direction: row;">
             <h4>{member.name}: {member.numberOfPicks}</h4>
-            <button on:click={() => removeTeamMember(member)}>Remove</button>
+            <form method="POST" action="?/remove">
+                <input type="hidden" name="id" value={team.id} />
+                <input name="name" type="hidden" value={member.name}>
+                <button>Remove</button>
+            </form>
         </div>
     {/each}
 </div>

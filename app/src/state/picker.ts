@@ -24,6 +24,7 @@ function createPickerState() {
         removeMember: (name: string) => update(team => ({ ...team, members: team.members.filter( member => member.name !== name)})),
         pick: (name: string) => update(team => ({ ...team, lastPick: name, members: team.members.map(member => ({ ...member, numberOfPicks: member.name === name ? member.numberOfPicks + 1 : member.numberOfPicks })) })),
         reset: () => set(initialState),
+        set: (team: Team) => set(team),
     }
 }
 
