@@ -2,6 +2,7 @@
 	"name": "app",
 	"version": "0.0.1",
 	"private": true,
+	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
@@ -37,6 +38,5 @@
 		"vite": "^4.4.9",
 		"vitest": "^0.32.2",
 		"vitest-dom": "^0.1.1"
-	},
-	"type": "module"
+	}
 }

@@ -32,3 +32,5 @@
 
 - Testing state directly is very clunky. There doesn't seem to be a nice way of giving an initial state. Maybe I'm going about this the wrong way?
 - Testing state indirectly seems to be borderline impossible. Might be workable by mocking it, but it's not nice.
+- I thought it would be possible to continue using a local state store and have this manage the connection to the server, but that doesn't seem to be the case.
+- Leaning heavily on forms makes it challenging to keep presentation and server logic separate
