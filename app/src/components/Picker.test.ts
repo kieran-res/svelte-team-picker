@@ -1,11 +1,13 @@
 // Testing any sort of connected component seems to be impossible.
 
 // import '@testing-library/jest-dom'
-// import { describe, it, expect, afterEach } from 'vitest';
+import { describe, it, expect } from 'vitest';
 // import {render, fireEvent, screen, cleanup} from '@testing-library/svelte'
 // import Picker from './Picker.svelte';
 
-// describe('Picker', () => {
+describe('Picker', () => {
+
+    it('temp test', () => expect(1+1).toBe(2))
 //     afterEach(() => cleanup())
 
 //     it('adds a team member on click', async () => {
@@ -47,4 +49,4 @@
 
 //         expect(screen.getByRole('button', { name: 'Pick' })).toBeVisible();
 //     })
-// })
+})
